@@ -1,4 +1,6 @@
 from __future__ import annotations
+from wfm_synth.profiles import load_profile
+
 
 import sys
 from pathlib import Path
@@ -30,6 +32,13 @@ def main():
         raise SystemExit(f"Snapshot table mismatch: expected {table}, got {snap.table}")
 
     schema_cols = snap.column_names
+
+    profile_cols = None
+    try:
+        profile = load_profile(table)
+        profile_cols = profile.columns
+    except Exception:
+        profile_cols = None
 
     if table == "vTimecardTotal":
         out = generate_vtimecardtotal(cfg, {"table": snap.table, "unique_identifier": snap.unique_identifier, "columns": snap.columns}, out_dir)
