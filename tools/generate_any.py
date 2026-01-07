@@ -1,6 +1,4 @@
 from __future__ import annotations
-from wfm_synth.profiles import load_profile
-
 
 import sys
 from pathlib import Path
@@ -12,11 +10,15 @@ if str(REPO_ROOT) not in sys.path:
 
 from wfm_synth.config import load_config
 from wfm_synth.schema_registry import snapshot_path_for_table, load_snapshot
+from wfm_synth.profiles import load_profile
+from wfm_synth.column_mapper import build_mapping
+
 from wfm_synth.generate_timecard_total import generate_vtimecardtotal
 from wfm_synth.generate_accrual_balance import generate_vaccrualbalance
 from wfm_synth.generate_dim_business_structure import generate_vdimbusinessstructure
 
-def main():
+
+def main() -> None:
     if len(sys.argv) != 4:
         raise SystemExit("Usage: python tools/generate_any.py <scenario_yaml> <table_name> <out_dir>")
 
@@ -33,24 +35,35 @@ def main():
 
     schema_cols = snap.column_names
 
+    # Optional profile-driven column ordering + mapping
     profile_cols = None
+    mapping = None
     try:
         profile = load_profile(table)
         profile_cols = profile.columns
+        mapping = build_mapping(profile_cols)
     except Exception:
         profile_cols = None
+        mapping = None
 
     if table == "vTimecardTotal":
-        out = generate_vtimecardtotal(cfg, {"table": snap.table, "unique_identifier": snap.unique_identifier, "columns": snap.columns}, out_dir)
+        out = generate_vtimecardtotal(
+            cfg,
+            {"table": snap.table, "unique_identifier": snap.unique_identifier, "columns": snap.columns},
+            out_dir,
+            profile_cols,
+            mapping,
+        )
     elif table == "vAccrualBalance":
-        out = generate_vaccrualbalance(cfg, schema_cols, out_dir)
+        out = generate_vaccrualbalance(cfg, schema_cols, out_dir, profile_cols, mapping)
     elif table == "vDimBusinessStructure":
-        out = generate_vdimbusinessstructure(cfg, schema_cols, out_dir)
+        out = generate_vdimbusinessstructure(cfg, schema_cols, out_dir, profile_cols, mapping)
     else:
         raise SystemExit(f"No generator registered for table: {table}")
 
     print(f"Wrote: {out}")
     print(f"Metadata: {out_dir / 'run_metadata.json'}")
+
 
 if __name__ == "__main__":
     main()
