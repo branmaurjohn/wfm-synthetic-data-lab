@@ -10,7 +10,7 @@ from wfm_synth.seed import derive_seed, rng
 from wfm_synth.ids import cost_center_8
 from wfm_synth.schema_utils import conform_to_schema
 
-def generate_vdimbusinessstructure(cfg: GeneratorConfig, schema_cols: list[str], out_dir: Path) -> Path:
+def generate_vdimbusinessstructure(cfg, schema_cols, out_dir, profile_cols=None, mapping=None):
     seed_ctx = derive_seed(cfg.seed_mode, cfg.seed)
     r = rng(seed_ctx.seed)
 

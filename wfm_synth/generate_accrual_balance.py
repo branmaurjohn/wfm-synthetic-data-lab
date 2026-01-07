@@ -31,7 +31,7 @@ def _month_ends(end_date: date, months: int):
         yield d
         d = d - timedelta(days=30)
 
-def generate_vaccrualbalance(cfg: GeneratorConfig, schema_cols: list[str], out_dir: Path) -> Path:
+def generate_vaccrualbalance(cfg, schema_cols, out_dir, profile_cols=None, mapping=None):
     seed_ctx = derive_seed(cfg.seed_mode, cfg.seed)
     r = rng(seed_ctx.seed)
 

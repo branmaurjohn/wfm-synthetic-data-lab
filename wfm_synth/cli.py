@@ -12,6 +12,7 @@ from wfm_synth.config import load_config
 from wfm_synth.schema_registry import snapshot_path_for_table, load_snapshot
 from wfm_synth.profiles import load_profile
 from wfm_synth.column_mapper import build_mapping
+from wfm_synth.run_pack import run_pack
 
 from wfm_synth.generate_timecard_total import generate_vtimecardtotal
 from wfm_synth.generate_accrual_balance import generate_vaccrualbalance
@@ -170,6 +171,27 @@ def main() -> None:
     p_gen.add_argument("table", help="Table name like vTimecardTotal")
     p_gen.add_argument("out_dir", help="Output folder")
     p_gen.set_defaults(func=_cmd_generate)
+    p_run = sub.add_parser("run", help="Generate a full multi-table data pack for a scenario")
+    p_run.add_argument("scenario", help="Scenario YAML path")
+    p_run.add_argument("out_base", help="Base output folder (tables will be subfolders)")
+    p_run.add_argument(
+        "--tables",
+        default="",
+        help="Comma-separated tables to generate (default: all registered tables)",
+    )
+
+    def _cmd_run(args: argparse.Namespace) -> int:
+        scenario = Path(args.scenario).resolve()
+        out_base = Path(args.out_base).resolve()
+        cfg = load_config(str(scenario))
+
+        tables = [t.strip() for t in args.tables.split(",") if t.strip()] if args.tables else None
+        manifest_path = run_pack(cfg, out_base, tables=tables)
+
+        print(f"Wrote manifest: {manifest_path}")
+        return 0
+
+    p_run.set_defaults(func=_cmd_run)
 
     args = parser.parse_args()
     rc = args.func(args)

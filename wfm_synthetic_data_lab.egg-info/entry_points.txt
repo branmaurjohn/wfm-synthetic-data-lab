@@ -1,0 +1,2 @@
+[console_scripts]
+wfm-synth = wfm_synth.cli:main

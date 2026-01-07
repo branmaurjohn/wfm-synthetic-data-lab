@@ -1,0 +1,65 @@
+Metadata-Version: 2.4
+Name: wfm-synthetic-data-lab
+Version: 0.1.0
+Summary: Schema-driven synthetic data generator for UKG Pro WFM / DataHub-style tables.
+Author: Brandon Johnson
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: faker>=25.0.0
+Requires-Dist: pandas>=2.2.0
+Requires-Dist: pyyaml>=6.0.1
+Requires-Dist: openpyxl>=3.1.2
+
+# WFM-Synthetic-Data-Lab ⚡️
+
+[![DATA: SYNTHETIC ONLY](https://img.shields.io/badge/DATA-SYNTHETIC%20ONLY-red)](#synthetic-safety) [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#quickstart) [![CLI](https://img.shields.io/badge/CLI-wfm--synth-black)](#cli) [![UKG Pro WFM](https://img.shields.io/badge/UKG-Pro%20WFM%20%2F%20DataHub-6f2dbd)](#why-this-exists)
+
+> **This repo is the power plant.**\
+> It generates *table-accurate*, *schema-driven*, *join-safe* synthetic UKG Pro WFM / DataHub-style datasets so every other repo in the portfolio can run **without** access to real enterprise data.
+
+If you’re looking for the “how the hell did he do that?” moment: this is it.\
+Every visitor gets a fresh dataset experience (random seed mode) unless you explicitly lock it to deterministic (fixed seed).
+
+------------------------------------------------------------------------
+
+## Why this exists {#why-this-exists}
+
+UKG WFM analytics portfolios usually die in one of two places: 1) “I can’t share the data”\
+2) “My fake data doesn’t join to anything”
+
+This repo solves both by generating synthetic **people + org structure + time & labor facts** that: - look realistic (human names, email patterns, plausible hours) - follow the *same* schema as real DataHub tables (from the Omni dictionary) - preserve org-path patterns and keys (facility/unit/cost center) - can scale from “1 day / 10 employees” to “24 months / 310 employees / multi-unit facilities”
+
+------------------------------------------------------------------------
+
+## What you can generate (today)
+
+Pack-run (multiple tables in one shot): - `vDimBusinessStructure` - `vTimecardTotal` - `vAccrualBalance`
+
+The design supports expanding to 350+ tables via schema snapshots + generator registry.
+
+------------------------------------------------------------------------
+
+## Synthetic safety {#synthetic-safety}
+
+-   ✅ No real employee data
+-   ✅ No PHI/PII from any organization
+-   ✅ Faker-generated names & emails (realistic, not cartoon characters)
+-   ✅ Output changes on every run by default (**seed_mode: random**)
+
+------------------------------------------------------------------------
+
+## Architecture (how the power gets made)
+
+```mermaid
+flowchart LR
+
+  A[Omni Data Dictionary XLSX] --> B[Schema Snapshot JSON]
+  B --> C[Profiles + Column Mapping]
+  D[Scenario YAML] --> E[Generator Engine]
+
+  C --> E
+  E --> F[Output Pack: CSV + metadata]
+  F --> G[Downstream Repos: BI / SQL / ML / Notebooks]
+```
+ 
