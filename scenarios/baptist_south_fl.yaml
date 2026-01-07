@@ -1,0 +1,33 @@
+run_name: "baptist_south_fl_demo"
+seed_mode: "random"
+
+facility:
+  company: "AHS"
+  state: "FL"
+  market: "FL"
+  facility_name: "Baptist South"
+  facility_code: "5265"
+  service_line: "CC"
+
+units:
+  - unit_name: "Intensive Care Unit"
+    unit_code: "1004"
+    job: "RN"
+    headcount_weight: 2.0
+  - unit_name: "Environmental Services"
+    unit_code: "2001"
+    job: "EVS"
+    headcount_weight: 1.0
+  - unit_name: "Recruiting"
+    unit_code: "3001"
+    job: "HR_RECRUITER"
+    headcount_weight: 0.6
+
+population:
+  employees: 310
+  promotions_rate: 0.10
+  attrition_rate: 0.12
+  termination_rate: 0.03
+
+window:
+  months: 24
