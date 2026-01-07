@@ -1,0 +1,195 @@
+{
+  "table": "vAccrualBalance",
+  "unique_identifier": "partitionDate,uniqueId",
+  "columns": [
+    {
+      "name": "partitionDate",
+      "dtype": "DATE",
+      "description": "Depending on the INTERVAL selected the partition date could be weekly, monthly or pay period end date. This is \"as of a specific date.\"\nNote : Only one value is permitted. The available options are: \n \"Weekly-Monday\",\n  \"Weekly-Tuesday\",\n  \"Weekly-Wednesday\",\n  \"Weekly-Thursday\",\n  \"Weekly-Friday\",\n  \"Weekly-Saturday\",\n  \"Weekly-Sunday\",\n  \"Monthly-Begin\",\n  \"Monthly-End\",\n  \"Pay-Period-End\"\nFor example, if \"Weekly-Monday\", is selected, the partitionDate will reference any date that falls on a Monday. This is date as of which all the other metrics and attributes in this view are calculated.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "personId",
+      "dtype": "INT64",
+      "description": "Person Identifier",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "accrualCodeId",
+      "dtype": "INT64",
+      "description": "Accrual Code Identifier",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currencyCode",
+      "dtype": "STRING",
+      "description": "Currency code for the amounts . Currency code for the current, probation, planned, pending, taking, earned or available amounts.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currentBalVestedDays",
+      "dtype": "FLOAT",
+      "description": "Vested refers to balances earned or otherwise accrued.\nVested Balance Days as of the partitionDate. In this example if the partiotionDate is 8/22, Vested Days as of 8/22.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currentBalVestedHrs",
+      "dtype": "FLOAT",
+      "description": "Vested Balance Hours as of the partitionDate. In this example if the partiotionDate is 8/22,  Vested hours as of 8/22.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currentBalVestedAmt",
+      "dtype": "FLOAT",
+      "description": "Vested Balance Amount as of the partitionDate. In this example if the partiotionDate is 8/22,  Vested amount as of 8/22.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currentBalProbationDays",
+      "dtype": "FLOAT",
+      "description": "Accrued balances Days  for Probation type accrual code. Balances in Days",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currentBalProbationHrs",
+      "dtype": "FLOAT",
+      "description": "Accrued balances hours for Probation type accrual code. Balances in Hours",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "currentBalProbationAmt",
+      "dtype": "FLOAT",
+      "description": "Accrued balances  amounts for Probation type accrual code. Balances in Amounts",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "availableBalDays",
+      "dtype": "FLOAT",
+      "description": "Balance or remainig days as of the partition date  In this example currentBalVestedDays as of 8/22,  minus the plannedTakingDays as 8/22 , minus the takingToDateDays as of 8/22.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "availableBalHrs",
+      "dtype": "FLOAT",
+      "description": "Balance or remainig hours as of the partition date",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "availableBalAmt",
+      "dtype": "FLOAT",
+      "description": "Balance or remainig amount as of the partition date",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "earnedToDateDays",
+      "dtype": "FLOAT",
+      "description": "The number of days earned as of the partitionDate. If using an  accrual policy which involves for example accruing vacation for every day or hour worked, then earned will be the days of vacation accrued as of the partitionDate",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "earnedToDateHrs",
+      "dtype": "FLOAT",
+      "description": "The number of hours earned as of the partitionDate",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "earnedToDateAmt",
+      "dtype": "FLOAT",
+      "description": "The amount earned as of the partitionDate.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "pendingGrantDays",
+      "dtype": "FLOAT",
+      "description": "Days which will accrue after the partitionDate. For example vacation days earned after 8/22 are considered as Pending as of 8/22.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "pendingGrantHrs",
+      "dtype": "FLOAT",
+      "description": "Hours which will accrue after the partitionDate.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "pendingGrantAmt",
+      "dtype": "FLOAT",
+      "description": "Amounts which will accrue after the partitionDate.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "plannedTakingDays",
+      "dtype": "FLOAT",
+      "description": "Days scheduled to be taken or used after the current partition date. For example, vacation days that are  scheduled to be taken after current partion date, 8/22. These are considered to be planned but not yet taken.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "plannedTakingHrs",
+      "dtype": "FLOAT",
+      "description": "Hours scheduled to be taken or used after the current partition date.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "plannedTakingAmt",
+      "dtype": "FLOAT",
+      "description": "Amounts scheduled to be taken or used after the current partition date.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "takingToDateDays",
+      "dtype": "FLOAT",
+      "description": "Days already taken or used as of the current partition date. For example, vacation days before current partion date, 8/22.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "takingToDateHrs",
+      "dtype": "FLOAT",
+      "description": "Hours already taken or used as of the current partition date.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "takingToDateAmt",
+      "dtype": "FLOAT",
+      "description": "Amounts already taken or used as of the current partition date.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "uniqueId",
+      "dtype": "STRING",
+      "description": "Concatenation of Employee ID and Accrual Code. This will uniquely identify each record",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "updateDtm",
+      "dtype": "DATETIME",
+      "description": "The UTC date/time stamp of when the row was inserted or updated in BigQuery",
+      "pii": null,
+      "scrubbing": null
+    }
+  ]
+}

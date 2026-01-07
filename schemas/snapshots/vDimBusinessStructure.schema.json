@@ -1,0 +1,461 @@
+{
+  "table": "vDimBusinessStructure",
+  "unique_identifier": "Bus_orgId",
+  "columns": [
+    {
+      "name": "Bus_orgId",
+      "dtype": "INT64",
+      "description": "Primary Key (  Mimics behavior from ORG_IDS_ID in WFAN) DOES NOT contain all previous versions of the org path which are currently active.  - Should be used for all joins to detail fact Views.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgName",
+      "dtype": "STRING",
+      "description": "Name of the Org Node as entered in WFD (single value)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgFullName",
+      "dtype": "STRING",
+      "description": "Full Name of the Org Node as entered in WFD (single value)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgDescription",
+      "dtype": "STRING",
+      "description": "Description of the Org Node as entered in WFD (single value)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgEffectiveDate",
+      "dtype": "DATE",
+      "description": "Effective date of the current record (Should not be used for joins)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgExpirationDate",
+      "dtype": "DATE",
+      "description": "Expiration date of the current record (Should not be used for joins)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgTypeId",
+      "dtype": "INT64",
+      "description": "Org Type(ID) in the Business Structure that this node is configured.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgTypeName",
+      "dtype": "STRING",
+      "description": "Org Type(Name) in the Business Structure that this node is configured.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgPathTxt",
+      "dtype": "STRING",
+      "description": "Full path in the business structure down to this node.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgContextName",
+      "dtype": "STRING",
+      "description": "Can only be ORG or FORECAST",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgLocationCategory",
+      "dtype": "STRING",
+      "description": "Category, Department, or Site,   used for Forecasting (Retail)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak0",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration. \nThis is ALWAYS the CATEGORY level of the business structure (For Volume Only)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak1",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration. \nThis is ALWAYS the JOB level of the business structure",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak2",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak3",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak4",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak5",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak6",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak7",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak8",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak9",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak10",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak11",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak12",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak13",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak14",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak15",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak16",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak17",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak18",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak19",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak20",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak21",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak22",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak23",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak24",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak25",
+      "dtype": "STRING",
+      "description": "Name of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak0Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration. \nThis is ALWAYS the CATEGORY level of the business structure (For Volume Only)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak1Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration. \nThis is ALWAYS the JOB level of the business structure",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak2Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak3Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak4Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak5Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak6Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak7Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak8Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak9Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak10Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak11Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak12Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak13Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak14Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak15Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak16Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak17Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak18Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak19Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak20Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak21Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak22Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak23Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak24Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_orgBreak25Desc",
+      "dtype": "STRING",
+      "description": "Description of Business Structure Location based on Location type mappings in Data Hub configuration.",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_directWorkPercent",
+      "dtype": "INT64",
+      "description": "Percentage of Work Hours considered to be direct.  Can be found in Dimensions Business Structure at the Job level called Direct Work Allocation",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "Bus_indirectWorkPercent",
+      "dtype": "INT64",
+      "description": "Percentage of Work Hours considered to be indirect.  Can be found in Dimensions Business Structure at the Job level called Indirect Work Allocation",
+      "pii": null,
+      "scrubbing": null
+    }
+  ]
+}
