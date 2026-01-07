@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # WFM-Synthetic-Data-Lab ⚡️
 
 [![DATA: SYNTHETIC ONLY](https://img.shields.io/badge/DATA-SYNTHETIC%20ONLY-red)](#synthetic-safety) [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](#quickstart) [![CLI](https://img.shields.io/badge/CLI-wfm--synth-black)](#cli) [![UKG Pro WFM](https://img.shields.io/badge/UKG-Pro%20WFM%20%2F%20DataHub-6f2dbd)](#why-this-exists)
@@ -117,7 +116,3 @@ Seed behavior:
 * Names/emails/IDs look human, but none of it maps to real people or systems.
 
 ---
-
-=======
-# wfm-synthetic-data-lab
->>>>>>> 969b8e66c6f28826fee3c1f88848d5765f085d0e
