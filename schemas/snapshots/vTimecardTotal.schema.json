@@ -1,0 +1,251 @@
+{
+  "table": "vTimecardTotal",
+  "unique_identifier": "uniqueId",
+  "columns": [
+    {
+      "name": "personId",
+      "dtype": "INT64",
+      "description": "Used to join to people dimension",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "partitionDate",
+      "dtype": "DATE",
+      "description": "Represents apply date of transaction - use to join to date dimension",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "signedOffSwt",
+      "dtype": "INT64",
+      "description": "Indicates that timecard is signed off for the date of the transaction ** Do Not Use this value is not available or inaccurate **",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "amountType",
+      "dtype": "STRING",
+      "description": "Indicates if the pay code unit type of the amount paid was hours, money, or days",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "wages",
+      "dtype": "FLOAT64",
+      "description": "Wage amount for totalized transaction",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "hoursAmount",
+      "dtype": "FLOAT64",
+      "description": "Hours amount for totalized transaction",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "daysAmount",
+      "dtype": "FLOAT64",
+      "description": "Days amount for totalized transaction",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "combinedPayCodeSwt",
+      "dtype": "BOOLEAN",
+      "description": "Indicates if amount is associated with a combined pay code",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "payCode",
+      "dtype": "STRING",
+      "description": "Name of the pay code transactions are charged to - joins to pay code dimension",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "payCodeId",
+      "dtype": "INT64",
+      "description": "Unique identifier of a pay code. Joins to pay code dimension",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "wageMultiplier",
+      "dtype": "FLOAT64",
+      "description": "Indicates pay code multiplier of hours times base wage - 1 is regular, 1.5 is premium pay, etc",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "payPeriodWeek",
+      "dtype": "INT64",
+      "description": "** Do Not Use this value is not available or inaccurate **",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "payPeriodNumber",
+      "dtype": "INT64",
+      "description": "** Do Not Use this value is not available or inaccurate **",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborTransferSwt",
+      "dtype": "BOOLEAN",
+      "description": "Indicates if the transaction has a labortransfer",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "wageAddition",
+      "dtype": "FLOAT64",
+      "description": "Pay code wage addition amount",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "orgTransferSwt",
+      "dtype": "BOOLEAN",
+      "description": "Indicates if transaction has a business structure transfer",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "orgId",
+      "dtype": "INT64",
+      "description": "Unique ID of Business Structure location - joins to Business Structure Dimension",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "isFromCorrection",
+      "dtype": "BOOLEAN",
+      "description": "Indicates if the transaction is from a historical correction",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "costCenterId",
+      "dtype": "INT64",
+      "description": "Unique Identifier for a CostCenter joins to costCenter dimension",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryName1",
+      "dtype": "STRING",
+      "description": "Labor Category 1 entry name associated with transaction (applies to labor category transfer) Note: after DH Release 8.1 only view will have this value",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryName2",
+      "dtype": "STRING",
+      "description": "Labor Category 2 entry name associated with transaction (applies to labor category transfer) Note: after DH Release 8.1 only view will have this value",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryName3",
+      "dtype": "STRING",
+      "description": "Labor Category 3 entry name associated with transaction (applies to labor category transfer) Note: after DH Release 8.1 only view will have this value",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryName4",
+      "dtype": "STRING",
+      "description": "Labor Category 4 entry name associated with transaction (applies to labor category transfer) Note: after DH Release 8.1 only view will have this value",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryName5",
+      "dtype": "STRING",
+      "description": "Labor Category 5 entry name associated with transaction (applies to labor category transfer) Note: after DH Release 8.1 only view will have this value",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryName6",
+      "dtype": "STRING",
+      "description": "Labor Category 6 entry name associated with transaction (applies to labor category transfer) Note: after DH Release 8.1 only view will have this value",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryDesc1",
+      "dtype": "STRING",
+      "description": "Labor Category 1 entry description associated with transaction (applies to labor category transfer)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryDesc2",
+      "dtype": "STRING",
+      "description": "Labor Category 2 entry description associated with transaction (applies to labor category transfer)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryDesc3",
+      "dtype": "STRING",
+      "description": "Labor Category 3 entry description associated with transaction (applies to labor category transfer)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryDesc4",
+      "dtype": "STRING",
+      "description": "Labor Category 4 entry description associated with transaction (applies to labor category transfer)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryDesc5",
+      "dtype": "STRING",
+      "description": "Labor Category 5 entry description associated with transaction (applies to labor category transfer)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "laborEntryDesc6",
+      "dtype": "STRING",
+      "description": "Labor Category 6 entry description associated with transaction (applies to labor category transfer)",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "uniqueId",
+      "dtype": "STRING",
+      "description": "Unique identifier",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "updateDtm",
+      "dtype": "DATETIME",
+      "description": "The UTC date/time stamp of when the row was inserted or updated in BigQuery",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "costCenter",
+      "dtype": "STRING",
+      "description": "Cost Center name",
+      "pii": null,
+      "scrubbing": null
+    },
+    {
+      "name": "assignmentId",
+      "dtype": "INT64",
+      "description": null,
+      "pii": null,
+      "scrubbing": null
+    }
+  ]
+}
