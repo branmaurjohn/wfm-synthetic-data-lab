@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Synthetic Pack Contract Manifest",
+  "type": "object",
+  "required": [
+    "spc_version",
+    "schema_version",
+    "metrics_version",
+    "scenario",
+    "run_id",
+    "seed",
+    "time_window",
+    "tables",
+    "grain_notes",
+    "key_map",
+    "generation_stats",
+    "data_profile"
+  ],
+  "properties": {
+    "spc_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "schema_version": { "type": "string" },
+    "metrics_version": { "type": "string" },
+    "scenario": { "type": "string" },
+    "run_id": { "type": "string" },
+    "seed": { "type": ["string", "integer", "null"] },
+    "time_window": {
+      "type": "object",
+      "required": ["start", "end"],
+      "properties": {
+        "start": { "type": "string", "format": "date" },
+        "end": { "type": "string", "format": "date" }
+      },
+      "additionalProperties": false
+    },
+    "tables": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "grain_notes": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "key_map": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": { "type": "string" }
+      }
+    },
+    "generation_stats": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["rows"],
+        "properties": {
+          "rows": { "type": "integer", "minimum": 0 },
+          "null_rates": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "data_profile": {
+      "type": "object",
+      "required": ["row_counts_by_table"],
+      "properties": {
+        "row_counts_by_table": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

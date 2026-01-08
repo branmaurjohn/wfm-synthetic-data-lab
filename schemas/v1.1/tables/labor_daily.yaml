@@ -1,0 +1,45 @@
+table: labor_daily
+grain: 1 row per employee per org per day
+columns:
+  - name: person_id
+    dtype: string
+    nullable: false
+    description: Employee identifier
+  - name: org_id
+    dtype: string
+    nullable: false
+    description: Org unit identifier
+  - name: work_date
+    dtype: date
+    nullable: false
+    description: Work date
+  - name: scheduled_hours
+    dtype: number
+    nullable: false
+    description: Scheduled hours for the day
+  - name: hours_worked
+    dtype: number
+    nullable: false
+    description: Worked hours (REG + OT)
+  - name: ot_hours
+    dtype: number
+    nullable: false
+    description: Overtime hours
+  - name: absence_hours
+    dtype: number
+    nullable: false
+    description: Absence hours
+  - name: callout_hours
+    dtype: number
+    nullable: false
+    description: Callout hours
+relationships:
+  - column: person_id
+    references: employee.person_id
+    cardinality: many-to-one
+  - column: org_id
+    references: org_unit.org_id
+    cardinality: many-to-one
+distributions:
+  hours_worked: numeric
+  ot_hours: numeric

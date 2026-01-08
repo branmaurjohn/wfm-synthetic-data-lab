@@ -1,0 +1,51 @@
+scenario: tiny_hospital_smoke
+spc_version: "1.0.0"
+schema_version: "v1.1"
+metrics_version: "1.0.0"
+seed: "2026-01-08T07:15:00Z"
+time_window:
+  start: "2025-11-01"
+  end: "2025-11-30"
+headcount: 40
+org_units:
+  - org_id: "ICU"
+    org_name: "Intensive Care Unit"
+    unit_type: "ICU"
+    job_mix:
+      RN: 0.6
+      CNA: 0.3
+      RT: 0.1
+  - org_id: "ER"
+    org_name: "Emergency"
+    unit_type: "ER"
+    job_mix:
+      RN: 0.5
+      MD: 0.2
+      TECH: 0.3
+  - org_id: "MEDSURG"
+    org_name: "Med/Surg"
+    unit_type: "MED_SURG"
+    job_mix:
+      RN: 0.7
+      CNA: 0.3
+  - org_id: "UC"
+    org_name: "Urgent Care"
+    unit_type: "URGENT_CARE"
+    job_mix:
+      RN: 0.5
+      TECH: 0.5
+  - org_id: "REHAB"
+    org_name: "Rehab"
+    unit_type: "REHAB"
+    job_mix:
+      PT: 0.4
+      OT: 0.4
+      CNA: 0.2
+rates:
+  ot_rate: 0.08
+  absence_rate: 0.04
+  callout_rate: 0.02
+  weekend_shift_rate: 0.35
+shift_patterns:
+  default_shift_hours: 12
+  weekend_shift_hours: 12

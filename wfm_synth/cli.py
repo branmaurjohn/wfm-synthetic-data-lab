@@ -13,6 +13,8 @@ from wfm_synth.schema_registry import snapshot_path_for_table, load_snapshot
 from wfm_synth.profiles import load_profile
 from wfm_synth.column_mapper import build_mapping
 from wfm_synth.run_pack import run_pack
+from wfm_synth.pack_generator import generate_pack
+from wfm_synth.validator import validate_pack
 
 from wfm_synth.generate_timecard_total import generate_vtimecardtotal
 from wfm_synth.generate_accrual_balance import generate_vaccrualbalance
@@ -192,6 +194,41 @@ def main() -> None:
         return 0
 
     p_run.set_defaults(func=_cmd_run)
+
+    p_pack = sub.add_parser("generate-pack", help="Generate an SPC-compliant synthetic pack")
+    p_pack.add_argument("scenario", help="Scenario YAML path")
+    p_pack.add_argument(
+        "--out-base",
+        default=".",
+        help="Base output directory (default: repo root)",
+    )
+
+    def _cmd_generate_pack(args: argparse.Namespace) -> int:
+        pack_root = generate_pack(args.scenario, Path(args.out_base))
+        print(f"Wrote pack: {pack_root}")
+        return 0
+
+    p_pack.set_defaults(func=_cmd_generate_pack)
+
+    p_validate = sub.add_parser("validate-pack", help="Validate an SPC pack against the contract")
+    p_validate.add_argument("pack_path", help="Path to pack root (packs/<scenario>/<run_id>)")
+    p_validate.add_argument(
+        "--schema",
+        default=str(Path(__file__).resolve().parents[1] / "spc_schema.json"),
+        help="Path to spc_schema.json (default: repo root)",
+    )
+
+    def _cmd_validate_pack(args: argparse.Namespace) -> int:
+        errors = validate_pack(Path(args.pack_path), Path(args.schema))
+        if errors:
+            print("Pack validation failed:")
+            for err in errors:
+                print(f"  - {err}")
+            return 2
+        print("Pack validation passed")
+        return 0
+
+    p_validate.set_defaults(func=_cmd_validate_pack)
 
     args = parser.parse_args()
     rc = args.func(args)

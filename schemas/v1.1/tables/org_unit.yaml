@@ -1,0 +1,22 @@
+table: org_unit
+grain: 1 row per organizational unit
+columns:
+  - name: org_id
+    dtype: string
+    nullable: false
+    description: Synthetic org unit identifier
+  - name: org_name
+    dtype: string
+    nullable: false
+    description: Human-readable unit name
+  - name: unit_type
+    dtype: string
+    nullable: false
+    description: ICU, ER, MED_SURG, URGENT_CARE, REHAB, etc.
+  - name: parent_org_id
+    dtype: string
+    nullable: true
+    description: Optional parent org unit
+relationships: []
+distributions:
+  unit_type: categorical

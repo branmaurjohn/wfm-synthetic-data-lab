@@ -1,0 +1,34 @@
+table: employee
+grain: 1 row per employee
+columns:
+  - name: person_id
+    dtype: string
+    nullable: false
+    description: Synthetic employee identifier
+  - name: employee_id
+    dtype: string
+    nullable: false
+    description: External-facing employee ID
+  - name: org_id
+    dtype: string
+    nullable: false
+    description: Home organizational unit
+  - name: job_code
+    dtype: string
+    nullable: false
+    description: Primary job code
+  - name: hire_date
+    dtype: date
+    nullable: false
+    description: Hire date within scenario window range
+  - name: status
+    dtype: string
+    nullable: false
+    description: Employment status (ACTIVE/INACTIVE)
+relationships:
+  - column: org_id
+    references: org_unit.org_id
+    cardinality: many-to-one
+distributions:
+  job_code: categorical
+  status: categorical
