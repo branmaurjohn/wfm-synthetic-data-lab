@@ -1,0 +1,48 @@
+table: timecard
+grain: 1 row per employee per pay code per day
+columns:
+  - name: timecard_id
+    dtype: string
+    nullable: false
+    description: Unique timecard row identifier
+  - name: person_id
+    dtype: string
+    nullable: false
+    description: Employee identifier
+  - name: org_id
+    dtype: string
+    nullable: false
+    description: Org unit for the worked hours
+  - name: work_date
+    dtype: date
+    nullable: false
+    description: Work date
+  - name: pay_code
+    dtype: string
+    nullable: false
+    description: REG, OT, ABS, CALL
+  - name: hours
+    dtype: number
+    nullable: false
+    description: Hours recorded for the pay code
+  - name: punch_in
+    dtype: timestamp
+    nullable: true
+    description: Punch-in time (null for absences)
+  - name: punch_out
+    dtype: timestamp
+    nullable: true
+    description: Punch-out time (null for absences)
+relationships:
+  - column: person_id
+    references: employee.person_id
+    cardinality: many-to-one
+  - column: org_id
+    references: org_unit.org_id
+    cardinality: many-to-one
+  - column: pay_code
+    references: pay_code.pay_code
+    cardinality: many-to-one
+distributions:
+  pay_code: categorical
+  hours: numeric

@@ -58,6 +58,33 @@ Expected result:
 - output\baptist_south_fl\run_manifest.json
 - one folder per table with *.csv + run_metadata.json
 ---
+## SPC packs (contract-first demo)
+
+This repo ships a canonical **Synthetic Pack Contract (SPC)** and a tiny demo scenario to generate SPC-compliant packs.
+
+### Generate a tiny SPC pack
+```
+wfm-synth generate-pack scenarios\\tiny_hospital_smoke.yaml --out-base .
+```
+
+### Validate a pack
+```
+wfm-synth validate-pack packs\\tiny_hospital_smoke\\<run_id>
+```
+
+### One-button demo
+```
+scripts\\bootstrap_demo.ps1
+```
+
+This produces:
+- `outputs/demo_summary.md`
+- `outputs/demo_dashboard.html`
+- `outputs/demo_log.json`
+
+See `docs/pack_contract.md` for the full SPC definition.
+
+---
 ## Validate the output (fast checks)
 
 ### Null-rate check for key columns (vTimecardTotal)

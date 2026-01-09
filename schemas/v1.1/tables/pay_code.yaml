@@ -1,0 +1,18 @@
+table: pay_code
+grain: 1 row per pay code
+columns:
+  - name: pay_code
+    dtype: string
+    nullable: false
+    description: Pay code identifier
+  - name: pay_code_name
+    dtype: string
+    nullable: false
+    description: Human-readable name
+  - name: pay_category
+    dtype: string
+    nullable: false
+    description: REGULAR, OVERTIME, ABSENCE, CALLOUT
+relationships: []
+distributions:
+  pay_category: categorical
